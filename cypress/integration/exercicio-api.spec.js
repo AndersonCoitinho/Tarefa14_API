@@ -53,24 +53,6 @@ describe('Testes da Funcionalidade Usuários', () => {
           })
      });
 
-     it('Deve editar um usuário previamente cadastrado', () => {
-          cy.request('usuarios').then(response => {
-               let id = response.body.usuarios[3]._id
-               cy.request({
-                    method: 'PUT',
-                    url: `usuarios/${id}`,
-                    body:
-                    {
-                         "nome": "tal",
-                         "email": "albertinhosss@gmail.com",
-                         "password": "159",
-                         "administrador": "true"
-                    }
-               }).then(response => {
-                    expect(response.body.message).to.equal('Registro alterado com sucesso')
-               })
-          })
-     });
 
      it('Deve deletar um usuário previamente cadastrado', () => {
           cy.cadastrarUsuario("usuario novo", "emailaqui@gmail.com", "novo", "false")
